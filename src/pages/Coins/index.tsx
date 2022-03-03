@@ -1,4 +1,4 @@
-import type { CoinType } from "./Coins.type";
+import type { ICoin } from "./Coins.type";
 import {
   Coin,
   CoinsList,
@@ -6,36 +6,39 @@ import {
   Header,
   Loader,
   Title,
+  Img,
 } from "./Coins.style";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useQuery } from "react-query";
+import { fetchCoins } from "../../api/coinApi";
+import { Helmet } from "react-helmet";
 
-function Coins() {
-  const [coins, setCoins] = useState<CoinType[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // 즉시실행함수
-    (async () => {
-      const response = await fetch("https://api.coinpaprika.com/v1/coins");
-      const json = await response.json();
-      setCoins(json.slice(0, 100));
-      setLoading(false);
-    })();
-  }, []);
+export default function Coins() {
+  const { isLoading, data } = useQuery<ICoin[]>("coins", fetchCoins);
 
   return (
     <Container>
+      <Helmet>
+        <title>
+          <Title>Coins</Title>
+        </title>
+      </Helmet>
       <Header>
         <Title>Coins</Title>
       </Header>
-      {loading ? (
+      {isLoading ? (
         <Loader>Loading...</Loader>
       ) : (
         <CoinsList>
-          {coins.map((coin) => (
+          {data?.slice(0, 100).map((coin) => (
             <Coin key={coin.id}>
-              <Link to={`/${coin.id}`}>{coin.name} &rarr;</Link>
+              <Link to={`/${coin.id}`} state={{ name: coin.name }}>
+                <Img
+                  src={`https://cryptoicon-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`}
+                  alt="coin-image"
+                />
+                {coin.name} &rarr;
+              </Link>
             </Coin>
           ))}
         </CoinsList>
@@ -43,5 +46,3 @@ function Coins() {
     </Container>
   );
 }
-
-export default Coins;
