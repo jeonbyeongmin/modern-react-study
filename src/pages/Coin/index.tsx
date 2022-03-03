@@ -4,9 +4,11 @@ import {
   Routes,
   useLocation,
   useMatch,
+  useNavigate,
   useParams,
 } from "react-router-dom";
 import {
+  Back,
   Container,
   Description,
   Header,
@@ -29,6 +31,7 @@ function Coin() {
   const { state } = useLocation() as RouteState;
   const priceMatch = useMatch("/:id/price");
   const chartMatch = useMatch("/:id/chart");
+  const navigate = useNavigate();
 
   const { isLoading: infoLoading, data: infoData } = useQuery<InfoData>(
     ["info", id],
@@ -48,6 +51,7 @@ function Coin() {
           {state?.name ?? (loading ? "Loading..." : infoData?.name)}
         </title>
       </Helmet>
+      <Back onClick={() => navigate("/")}>&larr; Go back</Back>
       <Header>
         <Title>
           {state?.name ?? (loading ? "Loading..." : infoData?.name)}
@@ -94,8 +98,8 @@ function Coin() {
           </Tabs>
 
           <Routes>
-            <Route path="price" element={<Price id={id} />} />
             <Route path="chart" element={<Chart id={id} />} />
+            <Route path="price" element={<Price tickersData={tickersData} />} />
           </Routes>
         </>
       )}

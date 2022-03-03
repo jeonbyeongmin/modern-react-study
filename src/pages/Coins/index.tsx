@@ -19,12 +19,10 @@ export default function Coins() {
   return (
     <Container>
       <Helmet>
-        <title>
-          <Title>Coins</Title>
-        </title>
+        <title>COIN</title>
       </Helmet>
       <Header>
-        <Title>Coins</Title>
+        <Title>COIN</Title>
       </Header>
       {isLoading ? (
         <Loader>Loading...</Loader>

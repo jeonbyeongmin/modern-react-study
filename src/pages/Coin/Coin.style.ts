@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Title = styled.h1`
   font-size: 48px;
-  font-weight: 700;
+  font-weight: 900;
   color: ${(props) => props.theme.accentColor};
 `;
 
@@ -43,8 +43,11 @@ export const OverviewItem = styled.div`
     margin-bottom: 5px;
   }
 `;
+
 export const Description = styled.p`
   margin: 20px 0px;
+  line-height: 1.4;
+  font-size: 16px;
 `;
 
 export const Tabs = styled.div`
@@ -67,5 +70,18 @@ export const Tab = styled.span<{ isActive: boolean }>`
   a {
     padding: 7px 0px;
     display: block;
+  }
+`;
+
+export const Back = styled.button`
+  font-size: 16px;
+  margin-top: 30px;
+  background: none;
+  color: ${(props) => props.theme.textColor};
+  border: none;
+  transition: color 0.2s ease-in;
+
+  &:hover {
+    color: ${(props) => props.theme.accentColor};
   }
 `;

@@ -3,8 +3,8 @@ export interface ChartProps {
 }
 
 export interface IHistoricalData {
-  time_open: string;
-  time_close: string;
+  time_open: Date;
+  time_close: Date;
   open: number;
   high: number;
   low: number;

@@ -1,3 +1,5 @@
+import { TickersData } from "../Coin/Coin.type";
+
 export interface PriceProps {
-  id: string | undefined;
+  tickersData: TickersData | undefined;
 }
