@@ -44,21 +44,17 @@ function Chart({ id }: ChartProps) {
               show: false,
             },
             xaxis: {
-              labels: { show: true },
+              labels: { show: false },
               axisTicks: {
                 show: true,
               },
               axisBorder: {
                 show: true,
               },
-              type: "datetime",
-              categories: data?.map((price) => price.time_close),
             },
-            stroke: {
-              curve: "smooth",
-              width: 1,
+            grid: {
+              show: true,
             },
-
             tooltip: {
               y: {
                 formatter: (value) => `$ ${value.toFixed(2)}`,
