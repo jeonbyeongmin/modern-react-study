@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
 import { fetchCoinHistory } from "../../api/coinApi";
-import { ChartProps, IHistoricalData } from "./Chart.type";
+import { ChartProps, IHistoricalData } from "./ChartType";
 import ApexChart from "react-apexcharts";
 
 function Chart({ id }: ChartProps) {

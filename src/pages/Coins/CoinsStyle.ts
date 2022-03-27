@@ -16,10 +16,11 @@ export const Header = styled.header`
 export const CoinsList = styled.ul``;
 
 export const Coin = styled.li`
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: ${(props) => props.theme.cardBgColor};
   color: ${(props) => props.theme.textColor};
   margin-bottom: 10px;
   border-radius: 15px;
+  border: 1px solid white;
   a {
     display: flex;
     align-items: center;

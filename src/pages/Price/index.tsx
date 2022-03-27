@@ -1,5 +1,5 @@
-import { Overview, OverviewItem } from "./Price.style";
-import { PriceProps } from "./Price.type";
+import { Overview, OverviewItem } from "./PriceStyle";
+import { PriceProps } from "./PriceType";
 
 function Price({ tickersData }: PriceProps) {
   console.log(tickersData);

@@ -18,8 +18,8 @@ import {
   Tab,
   Tabs,
   Title,
-} from "./Coin.style";
-import { InfoData, TickersData, RouteState } from "./Coin.type";
+} from "./CoinStyle";
+import { InfoData, TickersData, RouteState } from "./CoinType";
 import Price from "../Price";
 import Chart from "../Chart";
 import { useQuery } from "react-query";
@@ -73,7 +73,7 @@ function Coin() {
             </OverviewItem>
             <OverviewItem>
               <span>Price:</span>
-              <span>$ {tickersData?.quotes.USD.price.toFixed(3)}</span>
+              <span>${tickersData?.quotes?.USD?.price?.toFixed(3)}</span>
             </OverviewItem>
           </Overview>
           <Description>{infoData?.description}</Description>

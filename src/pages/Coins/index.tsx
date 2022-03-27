@@ -1,4 +1,4 @@
-import type { ICoin } from "./Coins.type";
+import type { ICoin } from "./CoinsType";
 import {
   Coin,
   CoinsList,
@@ -7,7 +7,7 @@ import {
   Loader,
   Title,
   Img,
-} from "./Coins.style";
+} from "./CoinsStyle";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import { fetchCoins } from "../../api/coinApi";

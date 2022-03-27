@@ -1,4 +1,4 @@
-import { TickersData } from "../Coin/Coin.type";
+import { TickersData } from "../Coin/CoinType";
 
 export interface PriceProps {
   tickersData: TickersData | undefined;
